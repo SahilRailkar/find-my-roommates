@@ -1,0 +1,41 @@
+#wallpaper {
+    height: 20vh;
+}
+
+.line {
+    position: relative;
+    border: 1px solid grey;
+    margin-bottom: 10vh;
+}
+
+#profile {
+    background-image: url("./anteater.png");
+    background-position: center center;
+    background-size: cover;
+    width: 20vh;
+    height: 20vh;
+    border: solid black 1px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -10vh;
+    margin-top: -10vh;
+}
+
+#name {
+    width: 100%;
+    font: 4vh Arial;
+    text-align: center;
+    margin-top: 12vh;
+}
+
+.tag {
+    margin-right: 1vw;
+}
+
+#tags {
+    margin: auto;
+    width: 50%;
+    border: 1px solid black;
+}

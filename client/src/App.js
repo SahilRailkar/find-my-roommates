@@ -1,14 +1,18 @@
 import React from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NavBar from './components/NavBar/NavBar'
+import Profile from './pages/Profile'
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <NavBar />
-    </div>
+      <Switch>
+        <Route path="/profile" exact component={Profile}/>
+      </Switch>
+    </Router>
   );
 }
 
