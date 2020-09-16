@@ -2,7 +2,7 @@ import React from 'react';
 import './Tag.css'
 
 const Tag = (props) => {
-    return (<span class="tag">
+    return (<span className="tag">
         {props.text}
     </span>)
 }

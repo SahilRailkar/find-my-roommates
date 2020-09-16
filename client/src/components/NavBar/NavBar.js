@@ -5,7 +5,7 @@ function NavBar() {
     return (
     <div>
         <Navbar bg="light" expand="lg" className="justify-content-center">
-            <Navbar.Brand href="#home">R</Navbar.Brand>
+            <Navbar.Brand href="#home">Rümer</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto justify-content-center">

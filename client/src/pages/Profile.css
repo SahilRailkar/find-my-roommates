@@ -1,3 +1,8 @@
+#container {
+    width: 45%;
+    margin: auto;
+}
+
 #wallpaper {
     height: 20vh;
 }
@@ -23,19 +28,38 @@
     margin-top: -10vh;
 }
 
+#name-row {
+    font: 4vh Arial;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
 #name {
     width: 100%;
-    font: 4vh Arial;
     text-align: center;
-    margin-top: 12vh;
+}
+
+#info {
+    font: 2vh Arial;
+    border: 1px dashed black;
+    margin-top: 2.5vh;
+    padding: 1.5vh;
+    border-radius: 10px;
+}
+
+#preferences {
+    font: 2vh Arial;
+    border: 1px dashed black;
+    margin-top: 2.5vh;
+    padding: 1.5vh;
+    border-radius: 10px;
 }
 
 .tag {
+    margin-top: 1vh;
     margin-right: 1vw;
 }
 
-#tags {
-    margin: auto;
-    width: 50%;
-    border: 1px solid black;
+.sep {
+    margin-bottom: 1vh;
 }
