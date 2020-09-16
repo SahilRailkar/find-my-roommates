@@ -27,7 +27,7 @@ class Profile extends Component {
 
     render() {
         return (
-            <div>
+            <div id="container">
                 <div id="wallpaper"></div>
                 <div className="line">
                     <span id="profile"></span>
@@ -35,25 +35,23 @@ class Profile extends Component {
                 <Row>
                     <Col md={1} xl={3}></Col>
                     <Col md={10} xl={6} id="content">
-                        <Row id="name-row">
-                            <div id="name">{this.state.firstName + " " + this.state.lastName}</div>
-                        </Row>
-                        <Row>
-                            <div> {this.tags} </div>
-                        </Row>
+                        <Row id="name-row"><div id="name">{this.state.firstName + " " + this.state.lastName}</div></Row>
+                        <Row><div> {this.tags} </div></Row>
+                        <Row id="about"><div>About</div></Row>
                         <Row id="info">
                             <div>
-                                <div className="sep"><strong>Year:</strong>{" " + this.state.year}</div>
-                                <div className="sep"><strong>Major:</strong>{" " + this.state.major}</div>
-                                <div className="sep"><strong>About:</strong>{" " + this.state.about}</div>
+                                <div className="sep"><em>Year:</em>{" " + this.state.year}</div>
+                                <div className="sep"><em>Major:</em>{" " + this.state.major}</div>
+                                <div className="sep"><em>Bio:</em>{" " + this.state.about}</div>
                             </div>
                         </Row>  
-                        <Row id="preferences">
+                        <Row id="preferences"><div>Preferences</div></Row>
+                        <Row id="preferences-row">
                             <div>
-                                <div className="sep"><strong>Preferences:</strong></div>
-                                <div className="sep"><strong>Location:</strong>{" " + this.state.location}</div>
-                                <div className="sep"><strong>Move-in Date:</strong>{" " + this.state.moveIn}</div>
-                                <div className="sep"><strong>Move-out Date:</strong>{" " + this.state.moveOut}</div>                                
+                                <div className="sep"><em>Location:</em>{" " + this.state.location}</div>
+                                <div className="sep"><em>Move-in Date:</em>{" " + this.state.moveIn}</div>
+                                <div className="sep"><em>Move-out Date:</em>{" " + this.state.moveOut}</div>  
+                                <div className="sep"><em>Single Gender/Mixed Gender</em></div>                              
                             </div>
                         </Row>
                     </Col>
