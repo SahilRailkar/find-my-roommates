@@ -1,5 +1,6 @@
 #container {
-    overflow-x: hidden;
+    background-color: black;
+    /* overflow-x: hidden; */
 }
 
 #wallpaper {
@@ -8,11 +9,12 @@
 
 .line {
     position: relative;
-    border: 1px solid grey;
+    border: 1px solid black;
     margin-bottom: 10vh;
 }
 
 #profile {
+    background-color: white;
     background-image: url("./anteater.png");
     background-position: center center;
     background-size: cover;
