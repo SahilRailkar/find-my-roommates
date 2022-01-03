@@ -14,11 +14,14 @@ const duration = 300;
 
 const imageStyles = {
 	borderRadius: '15px',
+	height: '300px',
 	objectFit: 'cover',
 	position: 'absolute',
 	transition: `all ${duration}ms ease-in-out`,
+	transform: 'translateZ(0)',
 	userDrag: 'none',
 	userSelect: 'none',
+	width: '200px',
 	MozUserSelect: 'none',
 	WebkitUserDrag: 'none',
 	WebkitUserSelect: 'none',
@@ -46,31 +49,31 @@ const ImageGroup = ({ images, refetchUser }) => {
 
 	const transitionStyles = {
 		entering: {
-			height: '300px',
+			// height: '300px',
 			left: 'calc(50% - 100px)',
 			opacity: 1,
-			width: '200px',
+			// width: '200px',
 			zIndex: 1,
 		},
 		entered: {
-			height: '300px',
+			// height: '300px',
 			left: 'calc(50% - 100px)',
 			opacity: 1,
-			width: '200px',
+			// width: '200px',
 			zIndex: 1,
 		},
 		exiting: {
-			height: '285px',
+			// height: '285px',
 			left: 'calc(40% - 100px)',
 			opacity: focus === 1 ? 0.5 : 0,
-			width: '190px',
+			// width: '190px',
 			zIndex: 0,
 		},
 		exited: {
-			height: '285px',
+			// height: '285px',
 			left: 'calc(40% - 100px)',
 			opacity: focus === 1 ? 0.5 : 0,
-			width: '190px',
+			// width: '190px',
 			zIndex: 0,
 		},
 	};
@@ -145,25 +148,25 @@ const ImageGroup = ({ images, refetchUser }) => {
 											const rightTransitionStyles = {
 												...transitionStyles,
 												exiting: {
-													height: '285px',
+													// height: '285px',
 													[index < focus ? 'left' : 'right']:
 														'calc(40% - 100px)',
 													opacity:
 														focus - 1 === index || focus + 1 === index
 															? 0.5
 															: 0,
-													width: '190px',
+													// width: '190px',
 													zIndex: 0,
 												},
 												exited: {
-													height: '285px',
+													// height: '285px',
 													[index < focus ? 'left' : 'right']:
 														'calc(40% - 100px)',
 													opacity:
 														focus - 1 === index || focus + 1 === index
 															? 0.5
 															: 0,
-													width: '190px',
+													// width: '190px',
 													zIndex: 0,
 												},
 											};
