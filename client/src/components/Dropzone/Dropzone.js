@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { useContext } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 
 import { useMutation } from '@apollo/client';
 
