@@ -1,27 +1,27 @@
 import React, { useContext } from 'react';
 
+import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
+import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 
-import CloseIcon from '@mui/icons-material/Close';
-
-import Dropzone from '../../components/Dropzone/Dropzone';
 import { ModalContext } from '../../contexts/ModalContext';
+import GoogleMaps from '../../components/GoogleMaps/GoogleMaps';
+import ImageGroup from '../../components/ImageGroup/ImageGroup';
 
 const style = {
 	position: 'absolute',
 	top: '50%',
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
-	width: 500,
+	width: 800,
 	bgcolor: 'background.paper',
 	borderRadius: '10px',
 	boxShadow: 24,
 };
 
-export default function UploadImageModal({ onUpload, setLoading }) {
+export default function AddListingModal() {
 	const { hideModal } = useContext(ModalContext);
 
 	return (
@@ -33,8 +33,6 @@ export default function UploadImageModal({ onUpload, setLoading }) {
 						hideModal();
 					}
 				}}
-				aria-labelledby="modal-modal-title"
-				aria-describedby="modal-modal-description"
 			>
 				<Box sx={style}>
 					<IconButton
@@ -48,11 +46,12 @@ export default function UploadImageModal({ onUpload, setLoading }) {
 						<CloseIcon />
 					</IconButton>
 					<Typography p={2} textAlign="center">
-						Upload images
+						Add a listing
 					</Typography>
 					<Box bgcolor="#eeeeee" height="1px" />
 					<Box p={4}>
-						<Dropzone onUpload={onUpload} setLoading={setLoading} />
+						<ImageGroup placeholder="Add pictures of your listing!" />
+						<GoogleMaps />
 					</Box>
 				</Box>
 			</Modal>

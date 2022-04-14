@@ -22,7 +22,7 @@ import { LogInModal } from '../../modals/LogInModal';
 import { GET_USER } from '../../graphql/queries';
 
 const pages = [
-	{ page: 'Find a room', route: '/find-a-room' },
+	{ page: 'Find rooms', route: '/find-rooms/listings' },
 	{ page: 'Find roommates', route: '/find-roommates' },
 	{ page: 'Marketplace', route: '/marketplace' },
 ];
@@ -123,7 +123,13 @@ const NavBar = () => {
 							fontFamily: 'Bitter, serif',
 							cursor: 'pointer',
 						}}
-						onClick={() => history.push('/')}
+						onClick={() => {
+							if (!user) {
+								history.push('/');
+							} else {
+								history.push('/find-rooms/listings');
+							}
+						}}
 					>
 						R
 					</Typography>
@@ -136,7 +142,13 @@ const NavBar = () => {
 							display: { xs: 'none', md: 'flex' },
 							cursor: 'pointer',
 						}}
-						onClick={() => history.push('/')}
+						onClick={() => {
+							if (!user) {
+								history.push('/');
+							} else {
+								history.push('/find-rooms/listings');
+							}
+						}}
 					>
 						rümer
 					</Typography>
@@ -204,7 +216,6 @@ const NavBar = () => {
 								onClick={() => history.push(route)}
 								sx={{
 									mx: 4,
-									my: 2,
 									color: 'white',
 									display: 'block',
 									textAlign: 'center',

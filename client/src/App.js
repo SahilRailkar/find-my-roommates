@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import {
 	ApolloClient,
+	ApolloLink,
 	InMemoryCache,
 	ApolloProvider,
 	createHttpLink,
@@ -11,8 +12,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import NavBar from './components/NavBar/NavBar';
 import ModalProvider from './contexts/ModalContext';
+import AddListing from './pages/add-listing/AddListing';
+import EditListing from './pages/edit-listing/EditListing';
 import Home from './pages/home/Home';
 import Profile from './pages/profile/Profile';
+import FindRooms from './pages/find-rooms/FindRooms';
 import './App.css';
 
 const link = createHttpLink({
@@ -22,7 +26,7 @@ const link = createHttpLink({
 
 const client = new ApolloClient({
 	cache: new InMemoryCache(),
-	link,
+	link: ApolloLink.from([link]),
 });
 
 const theme = createTheme({
@@ -58,7 +62,11 @@ function App() {
 						<NavBar />
 						<Switch>
 							<Route path="/" exact component={Home} />
-							<Route path="/profile" exact component={Profile} />
+							<Route path="/profile/:id" exact component={Profile} />
+							<Route path="/profile" component={Profile} />
+							<Route path="/find-rooms" component={FindRooms} />
+							<Route path="/add-listing" exact component={AddListing} />
+							<Route path="/edit-listing/:id" exact component={EditListing} />
 						</Switch>
 					</Router>
 				</ModalProvider>

@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 import { ModalContext } from '../../contexts/ModalContext';
-import { ADD_USER_IMAGES, GET_SIGNED_URLS } from '../../graphql/mutations';
+import { GET_SIGNED_URLS } from '../../graphql/mutations';
 
 const getColor = (props) => {
 	if (props.isDragAccept) {
@@ -23,7 +23,7 @@ const getColor = (props) => {
 	return '#eeeeee';
 };
 
-const Dropzone = ({ refetchUser }) => {
+const Dropzone = ({ onUpload, setLoading }) => {
 	const { hideModal } = useContext(ModalContext);
 	const {
 		acceptedFiles,
@@ -38,16 +38,25 @@ const Dropzone = ({ refetchUser }) => {
 		const options = {
 			headers: {
 				'Content-Type': file.type,
+				'x-amz-tagging': 'expires=true',
 			},
 		};
-		await axios.put(signedUrl, file, options);
+		await axios.put(signedUrl, file, options).catch((err) => {
+			if (err.response) {
+				// Request made and server responded
+				console.log(err.response.data);
+				console.log(err.response.status);
+				console.log(err.response.headers);
+			} else if (err.request) {
+				// The request was made but no response was received
+				console.log(err.request);
+			} else {
+				// Something happened in setting up the request that triggered an Error
+				console.log('Error', err.message);
+			}
+		});
 	};
 
-	const [addUserImages] = useMutation(ADD_USER_IMAGES, {
-		onCompleted: () => {
-			refetchUser();
-		},
-	});
 	const [getSignedUrls] = useMutation(GET_SIGNED_URLS, {
 		onCompleted: async (data) => {
 			const signedUrls = data.getSignedUrls;
@@ -59,11 +68,8 @@ const Dropzone = ({ refetchUser }) => {
 			const urls = signedUrls.map(({ url }) => {
 				return url;
 			});
-			addUserImages({
-				variables: {
-					urls,
-				},
-			});
+			onUpload(urls);
+			setLoading(false);
 		},
 	});
 
@@ -76,6 +82,7 @@ const Dropzone = ({ refetchUser }) => {
 	};
 
 	const handleClickUploadButton = async () => {
+		setLoading(true);
 		getSignedUrls({
 			variables: {
 				files: acceptedFiles.map((file) => {

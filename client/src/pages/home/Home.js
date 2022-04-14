@@ -50,8 +50,8 @@ const titleStyles = {
 };
 
 const imageStyles = {
-	minHeight: '100vh',
-	maxHeight: '100vh',
+	minHeight: 'calc(100vh - 64px)',
+	maxHeight: 'cakc(100vh - 64px)',
 	objectFit: 'cover',
 	width: '100%',
 };
